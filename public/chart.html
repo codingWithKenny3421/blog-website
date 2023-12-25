@@ -1,0 +1,32 @@
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+    
+    let months = ["Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "June 2023", "July 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023"]
+    let monthlyIncome = [0, 0, 0, 0, 0, 60, 0, 0, 60.09, 1.94, 2.95]
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Dividend Income Tracker',
+          data: monthlyIncome,
+          borderWidth: 1,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Change this line to set the color
+        borderColor: 'rgba(75, 192, 192, 1)', // Change this line to set the border color
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>

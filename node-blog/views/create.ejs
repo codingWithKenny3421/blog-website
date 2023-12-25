@@ -1,0 +1,21 @@
+<%- include("./header.ejs")%>
+
+<body>
+
+    <h1>Write a Blog!</h1>
+
+    <form action = '/blogs' method = "POST">
+        <input placeholder='Title...' type='text' id='title' name = 'title' required>
+        <br>
+        <input placeholder="Snippet..." type='text' id='snippet' name = 'snippet' required>
+        <br>
+        <textarea required placeholder="Body..." name = 'body'></textarea>
+        <br>
+        <a href = "/" class = 'btn btn-primary btn-lg d-grid gap-2'>Cancel</a>
+        <button class = 'btn btn-info btn-lg d-grid gap-2 w-100' type = 'submit'><a>Submit</a></button>
+    </form>
+
+    <%- include("../nav.ejs") %>
+
+</body>
+</html>

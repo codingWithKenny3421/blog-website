@@ -1,0 +1,33 @@
+<%- include("./header.ejs") %>
+<body>
+    <div class='container'>
+        <% if (blog) { %>
+            <h1>Title: <%= blog.title %></h1>
+            <h3>Snippet: <%= blog.snippet %></h3>
+            <p>Body: <%= blog.body %></p>
+            <button><a class='delete' data-doc="<%= blog._id %>">Delete</a></button>
+        <% } else { %>
+            <p>Blog not found</p>
+        <% } %>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+
+            container.addEventListener('click', (e) => {
+                if (e.target.classList.contains('delete')) {
+                    const endpoint = `/blogs/${e.target.dataset.doc}`;
+
+                    fetch(endpoint, {
+                        method: 'DELETE'
+                    })
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(err => console.log('Something went wrong', err));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
